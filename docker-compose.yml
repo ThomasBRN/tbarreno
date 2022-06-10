@@ -16,7 +16,6 @@ services:
       S3_PREFIX : mismatch-backup
       SCHEDULE : "@every 1m"
 
-
   db:
     image: mysql:5.7
     restart: always
