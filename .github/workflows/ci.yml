@@ -1,4 +1,5 @@
 name: run CI
+github.repository : namerep
 on:
   push:
     branches: [ main ]
@@ -12,4 +13,4 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: ${{ github.event.repository.name }}:latest, ${{ github.event.repository.name }}:latest
+          tags: ${{ github.event.repository.name }}:latest, ${{ namerep }}:latest
