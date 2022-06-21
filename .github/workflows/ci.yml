@@ -1,16 +1,22 @@
-name: run CI
-github.repository : namerep
-on:
-  push:
-    branches: [ main ]
-  workflow_dispatch:
-  
-jobs:
-  build-and-test:
-    runs-on: ubuntu-latest
-    steps:
-      - name: build docker image
-        uses: docker/build-push-action@v2
-        with:
-          push: true
-          tags: ${{ github.event.repository.name }}:latest, ${{ namerep }}:latest
+stages:
+  - build
+  - test
+
+build-code-job:
+  stage: build
+  script:
+    - echo "Check the ruby version, then build some Ruby project files:"
+    - ruby -v
+    - rake
+
+test-code-job1:
+  stage: test
+  script:
+    - echo "If the files are built successfully, test some files with one command:"
+    - rake test1
+
+test-code-job2:
+  stage: test
+  script:
+    - echo "If the files are built successfully, test other files with a different command:"
+    - rake test2
