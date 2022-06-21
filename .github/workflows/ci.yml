@@ -8,7 +8,7 @@ jobs:
   build-and-test:
     runs-on: ubuntu-latest
     steps:
-      - name: Build Docker image
+      - name: build docker image
         uses: docker/build-push-action@v2
         with:
           push: true
