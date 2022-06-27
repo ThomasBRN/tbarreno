@@ -25,5 +25,4 @@ services:
       MYSQL_PASSWORD: 7_lq|jZ18G1^&5]
       MYSQL_RANDOM_ROOT_PASSWORD: '1'
       
-      
- 
+       
