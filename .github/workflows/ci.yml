@@ -1,19 +1,20 @@
-on: push
+name: Deploy
+
+on:
+  push:
+    branches: [ master ]
 
 jobs:
-  build:
-  
+  deploy:
     runs-on: ubuntu-latest
-    
-    steps:
-    - uses: actions/checkout@v1
-      name: checkout project
-    - name: Run a one-line script
-      run : echo VideoTutoriales Android!
-    - name: Run a multi-line script
-      run:
-        echo VideoTutoriales Android Multiline
-        time
-        touch VideoTutorialesAndroid.txt
-        la -la
 
+    steps:
+    - uses: actions/checkout@v2
+
+    - uses: ThomasBRN/tbarreno@master
+      name: docker-compose Remote Deployment
+      with:
+        ssh_host: ThomasBRN
+        ssh_private_key: ${{ secrets.EXAMPLE_COM_SSH_PRIVATE_KEY }}
+        ssh_user: ${{ secrets.ThomasBRN }}
+ 
