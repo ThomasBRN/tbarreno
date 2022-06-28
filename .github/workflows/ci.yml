@@ -10,12 +10,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-
     - uses: ThomasBRN/tbarreno@master
       name: docker-compose Remote Deployment
       with:
         ssh_host: ThomasBRN
-        ssh_private_key: ${{ secrets.EXAMPLE_COM_SSH_PRIVATE_KEY }}
+        ssh_private_key: ${{ secrets.SSH_USERNAME }}
         ssh_user: ${{ secrets.ThomasBRN }}
  
  
